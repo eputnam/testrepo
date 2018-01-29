@@ -5,15 +5,15 @@ MORE STUFF
 TESTING KEYS
 # Reference
 ## Classes
-[`klass`](#klass): A simple class.
+* [`klass`](#klass): A simple class.
 ## Defined types
-[`dt`](#dt): A simple defined type.
+* [`definedtype`](#definedtype): A simple defined type.
 ## Resource types
-[`database`](#database): An example database server resource type.
+* [`database`](#database): An example database server resource type.
 ## Functions
-[`func`](#func): A simple Puppet function.
-[`func4x`](#func4x): An example 4.x function.
-[`func4x_1`](#func4x_1): An example 4.x function with only one signature.
+* [`func`](#func): A simple Puppet function.
+* [`func4x`](#func4x): An example 4.x function.
+* [`func4x_1`](#func4x_1): An example 4.x function with only one signature.
 ## Classes
 
 ### klass
@@ -42,9 +42,9 @@ Default value: hi
 
 ### Defined types
 
-#### dt
+#### definedtype
 
-The following parameters are available in the dt defined type.
+The following parameters are available in the definedtype defined type.
 
 ##### `param1`
 
