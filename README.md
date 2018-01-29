@@ -1,8 +1,3 @@
-# testrepo
-repo for testing stuff
-MORE STUFF
-
-TESTING KEYS
 # Reference
 ## Classes
 * [`klass`](#klass): A simple class.
