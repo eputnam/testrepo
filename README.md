@@ -118,24 +118,24 @@ Default value: false
 
 ### func
 
-`func(Integer $param1, Any $param2, String $param3 = hi)`
+#### `func(Integer $param1, Any $param2, String $param3 = hi)`
 
 A simple Puppet function.
 Returns: `Undef` Returns nothing.
 
-#### `param1`
+##### `param1`
 
 Data type: Integer
 
 First param.
 
-#### `param2`
+##### `param2`
 
 Data type: Any
 
 Second param.
 
-#### `param3`
+##### `param3`
 
 Data type: String
 
@@ -143,41 +143,41 @@ Third param.
 
 ### func4x
 
-`func4x(Integer $param1, Any $param2, Optional[Array[String]] $param3)`
+#### `func4x(Integer $param1, Any $param2, Optional[Array[String]] $param3)`
 
 The first overload.
 Returns: `Undef` Returns nothing.
 
-#### `param1`
+##### `param1`
 
 Data type: Integer
 
 The first parameter.
 
-#### `param2`
+##### `param2`
 
 Data type: Any
 
 The second parameter.
 
-#### `param3`
+##### `param3`
 
 Data type: Optional[Array[String]]
 
 The third parameter.
 
-`func4x(Boolean $param, Callable &$block)`
+#### `func4x(Boolean $param, Callable &$block)`
 
 
 Returns: `String` Returns a string.
 
-#### `param`
+##### `param`
 
 Data type: Boolean
 
 The first parameter.
 
-#### `&block`
+##### `&block`
 
 Data type: Callable
 
@@ -185,12 +185,12 @@ The block parameter.
 
 ### func4x_1
 
-`func4x_1(Integer $param1)`
+#### `func4x_1(Integer $param1)`
 
 An example 4.x function with only one signature.
 Returns: `Undef` Returns nothing.
 
-#### `param1`
+##### `param1`
 
 Data type: Integer
 
