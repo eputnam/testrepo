@@ -2,7 +2,7 @@
 ## Classes
 * [`klass`](#klass): A simple class.
 ## Defined types
-* [`definedtype`](#definedtype): A simple defined type.
+* [`definedtype`](#definedtype):
 ## Resource types
 * [`database`](#database): An example database server resource type.
 ## Functions
@@ -12,7 +12,20 @@
 ## Classes
 
 ### klass
+**Since** 1.0.0
+**See also**
+www.puppet.com
 
+#### Examples
+##### This is an example
+```puppet
+class { 'klass':
+  param1 => 1,
+  param3 => 'foo',
+}
+```
+
+#### Parameters
 The following parameters are available in the klass class.
 
 ##### `param1`
@@ -41,6 +54,11 @@ Default value: hi
 
 The following parameters are available in the definedtype defined type.
 
+##### ``
+
+A simple defined type.
+
+
 ##### `param1`
 
 Data type: Integer
@@ -63,14 +81,20 @@ Third param.
 
 Default value: hi
 
-### Resource types
+## Resource types
 
 ### database
+#### Examples
+##### here's an example
+```puppet
+database { 'foo':
+  address => 'qux.baz.bar',
+}
+```
 
-The following attributes are available in the database resource type.
+#### Properties
 
-#### properties
-
+The following properties are available in the database resource type.
 ##### `ensure`
 
 Valid values: present, absent, up, down
@@ -93,8 +117,9 @@ The log level to use.
 
 Default value: warn
 
-#### parameters
+#### Parameters
 
+The following parameters are available in the database resource type.
 ##### `address`
 
 namevar
