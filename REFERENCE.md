@@ -1,54 +1,68 @@
 # Reference
 
 ## Classes
-* [`mysql::backup::mysqlbackup`](#mysqlbackupmysqlbackup): See README.me for usage.
-* [`mysql::backup::mysqldump`](#mysqlbackupmysqldump): See README.me for usage.
-* [`mysql::backup::xtrabackup`](#mysqlbackupxtrabackup): See README.me for usage.
-* [`mysql::bindings`](#mysqlbindings): See README.md.
-* [`mysql::bindings::client_dev`](#mysqlbindingsclient_dev): Private class
+
+### Public Classes
+
+* [`mysql::backup::mysqlbackup`](#mysqlbackupmysqlbackup): 
+* [`mysql::backup::mysqldump`](#mysqlbackupmysqldump): 
+* [`mysql::backup::xtrabackup`](#mysqlbackupxtrabackup): 
+* [`mysql::bindings`](#mysqlbindings): Parent class for MySQL bindings.
 * [`mysql::bindings::daemon_dev`](#mysqlbindingsdaemon_dev): Private class
 * [`mysql::bindings::java`](#mysqlbindingsjava): Private class
 * [`mysql::bindings::perl`](#mysqlbindingsperl): Private class
 * [`mysql::bindings::php`](#mysqlbindingsphp): Private class: See README.md
 * [`mysql::bindings::python`](#mysqlbindingspython): Private class
 * [`mysql::bindings::ruby`](#mysqlbindingsruby): Private class
-* [`mysql::client`](#mysqlclient): 
+* [`mysql::client`](#mysqlclient): Installs and configures the MySQL client.
 * [`mysql::client::install`](#mysqlclientinstall): See README.md.
 * [`mysql::params`](#mysqlparams): Private class: See README.md.
-* [`mysql::server`](#mysqlserver): Class: mysql::server:  See README.md for documentation.
+* [`mysql::server`](#mysqlserver): Installs and configures the MySQL server.
 * [`mysql::server::account_security`](#mysqlserveraccount_security): See README.md.
-* [`mysql::server::backup`](#mysqlserverbackup): See README.me for usage.
+* [`mysql::server::backup`](#mysqlserverbackup): 
 * [`mysql::server::binarylog`](#mysqlserverbinarylog): Binary log configuration requires the mysql user to be present. This must be done after package install
 * [`mysql::server::config`](#mysqlserverconfig): See README.me for options.
-* [`mysql::server::install`](#mysqlserverinstall): 
-* [`mysql::server::installdb`](#mysqlserverinstalldb): 
-* [`mysql::server::monitor`](#mysqlservermonitor): This is a helper class to add a monitoring user to the database
-* [`mysql::server::mysqltuner`](#mysqlservermysqltuner): 
+* [`mysql::server::monitor`](#mysqlservermonitor): Manage MySQL monitoring.
+* [`mysql::server::mysqltuner`](#mysqlservermysqltuner): Manage the MySQLTuner package.
 * [`mysql::server::providers`](#mysqlserverproviders): Convenience class to call each of the three providers with the corresponding hashes provided in mysql::server. See README.md for details.
-* [`mysql::server::root_password`](#mysqlserverroot_password): 
-* [`mysql::server::service`](#mysqlserverservice): 
+
+### Private Classes
+
+* `mysql::bindings::client_dev`: Private class
+* `mysql::server::install`: Private class for managing MySQL package.
+* `mysql::server::installdb`: 
+* `mysql::server::root_password`: Private class for managing the root password
+* `mysql::server::service`: Private class for managing the MySQL service
+
 ## Defined types
-* [`mysql::db`](#mysqldb): See README.md for details.
+
+* [`mysql::db`](#mysqldb): Create and configure a MySQL database.
+
 ## Resource types
+
 * [`mysql_database`](#mysql_database): Manage MySQL databases.
 * [`mysql_datadir`](#mysql_datadir): Manage MySQL datadirs with mysql_install_db OR mysqld (5.7.6 and above).
 * [`mysql_grant`](#mysql_grant): Manage a MySQL user's rights.
 * [`mysql_plugin`](#mysql_plugin): Manage MySQL plugins.
 * [`mysql_user`](#mysql_user): Manage a MySQL user. This includes management of users password as well as privileges.
+
 ## Functions
+
 * [`mysql_deepmerge`](#mysql_deepmerge): Recursively merges two or more hashes together and returns the resulting hash.  For example:      $hash1 = {'one' => 1, 'two' => 2, 'three' =
 * [`mysql_dirname`](#mysql_dirname): Returns the dirname of a path.
 * [`mysql_password`](#mysql_password): Returns the mysql password hash from the clear text password.
 * [`mysql_strip_hash`](#mysql_strip_hash): TEMPORARY FUNCTION: EXPIRES 2014-03-10 When given a hash this function strips out all blank entries.
+
 ## Tasks
+
 * [`export`](#export): Allows you to backup your database to local file.
 * [`sql`](#sql): Allows you to execute arbitary SQL
+
 ## Classes
 
 ### mysql::backup::mysqlbackup
 
-See README.me for usage.
-
+The mysql::backup::mysqlbackup class.
 
 #### Parameters
 
@@ -222,11 +236,9 @@ Data type: `Any`
 
 Default value: []
 
-
 ### mysql::backup::mysqldump
 
-See README.me for usage.
-
+The mysql::backup::mysqldump class.
 
 #### Parameters
 
@@ -400,11 +412,9 @@ Data type: `Any`
 
 Default value: []
 
-
 ### mysql::backup::xtrabackup
 
-See README.me for usage.
-
+The mysql::backup::xtrabackup class.
 
 #### Parameters
 
@@ -602,11 +612,9 @@ Data type: `Any`
 
 Default value: ''
 
-
 ### mysql::bindings
 
-See README.md.
-
+Parent class for MySQL bindings.
 
 #### Parameters
 
@@ -616,7 +624,7 @@ The following parameters are available in the `mysql::bindings` class.
 
 Data type: `Any`
 
-
+Passes `install_options` array to managed package resources. You must pass the [appropriate options](https://docs.puppetlabs.com/references/latest/type.html#package-attribute-install_options) for the package manager(s).
 
 Default value: `undef`
 
@@ -624,7 +632,7 @@ Default value: `undef`
 
 Data type: `Any`
 
-
+Specifies whether `::mysql::bindings::java` should be included. Valid values are `true`, `false`.
 
 Default value: `false`
 
@@ -632,7 +640,7 @@ Default value: `false`
 
 Data type: `Any`
 
-
+Specifies whether `mysql::bindings::perl` should be included. Valid values are `true`, `false`.
 
 Default value: `false`
 
@@ -640,7 +648,7 @@ Default value: `false`
 
 Data type: `Any`
 
-
+Specifies whether `mysql::bindings::php` should be included. Valid values are `true`, `false`.
 
 Default value: `false`
 
@@ -648,7 +656,7 @@ Default value: `false`
 
 Data type: `Any`
 
-
+Specifies whether `mysql::bindings::python` should be included. Valid values are `true`, `false`.
 
 Default value: `false`
 
@@ -656,7 +664,7 @@ Default value: `false`
 
 Data type: `Any`
 
-
+Specifies whether `mysql::bindings::ruby` should be included. Valid values are `true`, `false`.
 
 Default value: `false`
 
@@ -664,7 +672,7 @@ Default value: `false`
 
 Data type: `Any`
 
-
+Specifies whether `::mysql::bindings::client_dev` should be included. Valid values are `true`', `false`.
 
 Default value: `false`
 
@@ -672,7 +680,7 @@ Default value: `false`
 
 Data type: `Any`
 
-
+Specifies whether `::mysql::bindings::daemon_dev` should be included. Valid values are `true`, `false`.
 
 Default value: `false`
 
@@ -680,7 +688,7 @@ Default value: `false`
 
 Data type: `Any`
 
-
+Whether the package should be present, absent, or a specific version. Valid values are 'present', 'absent', or 'x.y.z'. Only applies if `java_enable => true`.
 
 Default value: $mysql::params::java_package_ensure
 
@@ -688,7 +696,7 @@ Default value: $mysql::params::java_package_ensure
 
 Data type: `Any`
 
-
+The name of the Java package to install. Only applies if `java_enable => true`.
 
 Default value: $mysql::params::java_package_name
 
@@ -696,7 +704,7 @@ Default value: $mysql::params::java_package_name
 
 Data type: `Any`
 
-
+The provider to use to install the Java package. Only applies if `java_enable => true`.
 
 Default value: $mysql::params::java_package_provider
 
@@ -704,7 +712,7 @@ Default value: $mysql::params::java_package_provider
 
 Data type: `Any`
 
-
+Whether the package should be present, absent, or a specific version. Valid values are 'present', 'absent', or 'x.y.z'. Only applies if `perl_enable => true`.
 
 Default value: $mysql::params::perl_package_ensure
 
@@ -712,7 +720,7 @@ Default value: $mysql::params::perl_package_ensure
 
 Data type: `Any`
 
-
+The name of the Perl package to install. Only applies if `perl_enable => true`.
 
 Default value: $mysql::params::perl_package_name
 
@@ -720,7 +728,7 @@ Default value: $mysql::params::perl_package_name
 
 Data type: `Any`
 
-
+The provider to use to install the Perl package. Only applies if `perl_enable => true`.
 
 Default value: $mysql::params::perl_package_provider
 
@@ -728,7 +736,7 @@ Default value: $mysql::params::perl_package_provider
 
 Data type: `Any`
 
-
+Whether the package should be present, absent, or a specific version. Valid values are 'present', 'absent', or 'x.y.z'. Only applies if `php_enable => true`.
 
 Default value: $mysql::params::php_package_ensure
 
@@ -736,7 +744,7 @@ Default value: $mysql::params::php_package_ensure
 
 Data type: `Any`
 
-
+The name of the PHP package to install. Only applies if `php_enable => true`.
 
 Default value: $mysql::params::php_package_name
 
@@ -744,7 +752,7 @@ Default value: $mysql::params::php_package_name
 
 Data type: `Any`
 
-
+The provider to use to install the PHP package. Only applies if `php_enable => true`.
 
 Default value: $mysql::params::php_package_provider
 
@@ -752,7 +760,7 @@ Default value: $mysql::params::php_package_provider
 
 Data type: `Any`
 
-
+Whether the package should be present, absent, or a specific version. Valid values are 'present', 'absent', or 'x.y.z'. Only applies if `python_enable => true`.
 
 Default value: $mysql::params::python_package_ensure
 
@@ -760,7 +768,7 @@ Default value: $mysql::params::python_package_ensure
 
 Data type: `Any`
 
-
+The name of the Python package to install. Only applies if `python_enable => true`.
 
 Default value: $mysql::params::python_package_name
 
@@ -768,7 +776,7 @@ Default value: $mysql::params::python_package_name
 
 Data type: `Any`
 
-
+The provider to use to install the Python package. Only applies if `python_enable => true`.
 
 Default value: $mysql::params::python_package_provider
 
@@ -776,7 +784,7 @@ Default value: $mysql::params::python_package_provider
 
 Data type: `Any`
 
-
+Whether the package should be present, absent, or a specific version. Valid values are 'present', 'absent', or 'x.y.z'. Only applies if `ruby_enable => true`.
 
 Default value: $mysql::params::ruby_package_ensure
 
@@ -784,7 +792,7 @@ Default value: $mysql::params::ruby_package_ensure
 
 Data type: `Any`
 
-
+The name of the Ruby package to install. Only applies if `ruby_enable => true`.
 
 Default value: $mysql::params::ruby_package_name
 
@@ -792,7 +800,7 @@ Default value: $mysql::params::ruby_package_name
 
 Data type: `Any`
 
-
+What provider should be used to install the package.
 
 Default value: $mysql::params::ruby_package_provider
 
@@ -800,7 +808,7 @@ Default value: $mysql::params::ruby_package_provider
 
 Data type: `Any`
 
-
+Whether the package should be present, absent, or a specific version. Valid values are 'present', 'absent', or 'x.y.z'. Only applies if `client_dev => true`.
 
 Default value: $mysql::params::client_dev_package_ensure
 
@@ -808,7 +816,7 @@ Default value: $mysql::params::client_dev_package_ensure
 
 Data type: `Any`
 
-
+The name of the client_dev package to install. Only applies if `client_dev => true`.
 
 Default value: $mysql::params::client_dev_package_name
 
@@ -816,7 +824,7 @@ Default value: $mysql::params::client_dev_package_name
 
 Data type: `Any`
 
-
+The provider to use to install the client_dev package. Only applies if `client_dev => true`.
 
 Default value: $mysql::params::client_dev_package_provider
 
@@ -824,7 +832,7 @@ Default value: $mysql::params::client_dev_package_provider
 
 Data type: `Any`
 
-
+Whether the package should be present, absent, or a specific version. Valid values are 'present', 'absent', or 'x.y.z'. Only applies if `daemon_dev => true`.
 
 Default value: $mysql::params::daemon_dev_package_ensure
 
@@ -832,7 +840,7 @@ Default value: $mysql::params::daemon_dev_package_ensure
 
 Data type: `Any`
 
-
+The name of the daemon_dev package to install. Only applies if `daemon_dev => true`.
 
 Default value: $mysql::params::daemon_dev_package_name
 
@@ -840,50 +848,37 @@ Default value: $mysql::params::daemon_dev_package_name
 
 Data type: `Any`
 
-
+The provider to use to install the daemon_dev package. Only applies if `daemon_dev => true`.
 
 Default value: $mysql::params::daemon_dev_package_provider
-
-
-### mysql::bindings::client_dev
-
-Private class
-
 
 ### mysql::bindings::daemon_dev
 
 Private class
 
-
 ### mysql::bindings::java
 
 Private class
-
 
 ### mysql::bindings::perl
 
 Private class
 
-
 ### mysql::bindings::php
 
 Private class: See README.md
-
 
 ### mysql::bindings::python
 
 Private class
 
-
 ### mysql::bindings::ruby
 
 Private class
 
-
 ### mysql::client
 
-The mysql::client class.
-
+Installs and configures the MySQL client.
 
 #### Parameters
 
@@ -893,7 +888,7 @@ The following parameters are available in the `mysql::client` class.
 
 Data type: `Any`
 
-
+Whether to automatically install all bindings. Valid values are `true`, `false`. Default to `false`.
 
 Default value: $mysql::params::bindings_enable
 
@@ -901,7 +896,7 @@ Default value: $mysql::params::bindings_enable
 
 Data type: `Any`
 
-
+Array of install options for managed package resources. You must pass the appropriate options for the package manager.
 
 Default value: `undef`
 
@@ -909,7 +904,7 @@ Default value: `undef`
 
 Data type: `Any`
 
-
+Whether the MySQL package should be present, absent, or a specific version. Valid values are 'present', 'absent', or 'x.y.z'.
 
 Default value: $mysql::params::client_package_ensure
 
@@ -917,7 +912,7 @@ Default value: $mysql::params::client_package_ensure
 
 Data type: `Any`
 
-
+Whether to manage the MySQL client package. Defaults to `true`.
 
 Default value: $mysql::params::client_package_manage
 
@@ -925,25 +920,21 @@ Default value: $mysql::params::client_package_manage
 
 Data type: `Any`
 
-
+The name of the MySQL client package to install.
 
 Default value: $mysql::params::client_package_name
-
 
 ### mysql::client::install
 
 See README.md.
 
-
 ### mysql::params
 
 Private class: See README.md.
 
-
 ### mysql::server
 
-Class: mysql::server:  See README.md for documentation.
-
+Installs and configures the MySQL server.
 
 #### Parameters
 
@@ -953,7 +944,7 @@ The following parameters are available in the `mysql::server` class.
 
 Data type: `Any`
 
-
+The location, as a path, of the MySQL configuration file.
 
 Default value: $mysql::params::config_file
 
@@ -961,7 +952,7 @@ Default value: $mysql::params::config_file
 
 Data type: `Any`
 
-
+The location, as a path, of !includedir for custom configuration overrides.
 
 Default value: $mysql::params::includedir
 
@@ -969,7 +960,7 @@ Default value: $mysql::params::includedir
 
 Data type: `Any`
 
-
+Passes [install_options](https://docs.puppetlabs.com/references/latest/type.html#package-attribute-install_options) array to managed package resources. You must pass the appropriate options for the specified package manager.
 
 Default value: `undef`
 
@@ -985,7 +976,7 @@ Default value: $mysql::params::install_secret_file
 
 Data type: `Any`
 
-
+Whether the MySQL configuration file should be managed. Valid values are `true`, `false`. Defaults to `true`.
 
 Default value: $mysql::params::manage_config_file
 
@@ -993,7 +984,7 @@ Default value: $mysql::params::manage_config_file
 
 Data type: `Any`
 
-
+Specifies override options to pass into MySQL. Structured like a hash in the my.cnf file:  See  above for usage details.
 
 Default value: {}
 
@@ -1001,7 +992,7 @@ Default value: {}
 
 Data type: `Any`
 
-
+Whether the package exists or should be a specific version. Valid values are 'present', 'absent', or 'x.y.z'. Defaults to 'present'.
 
 Default value: $mysql::params::server_package_ensure
 
@@ -1009,7 +1000,7 @@ Default value: $mysql::params::server_package_ensure
 
 Data type: `Any`
 
-
+Whether to manage the MySQL server package. Defaults to `true`.
 
 Default value: $mysql::params::server_package_manage
 
@@ -1017,7 +1008,7 @@ Default value: $mysql::params::server_package_manage
 
 Data type: `Any`
 
-
+The name of the MySQL server package to install.
 
 Default value: $mysql::params::server_package_name
 
@@ -1025,7 +1016,7 @@ Default value: $mysql::params::server_package_name
 
 Data type: `Any`
 
-
+Whether the `includedir` directory should be purged. Valid values are `true`, `false`. Defaults to `false`.
 
 Default value: $mysql::params::purge_conf_dir
 
@@ -1033,7 +1024,7 @@ Default value: $mysql::params::purge_conf_dir
 
 Data type: `Any`
 
-
+Specifies whether to automatically include `mysql::server::account_security`. Valid values are `true`, `false`. Defaults to `false`.
 
 Default value: `false`
 
@@ -1041,7 +1032,7 @@ Default value: `false`
 
 Data type: `Any`
 
-
+Whether the service should be restarted when things change. Valid values are `true`, `false`. Defaults to `false`.
 
 Default value: $mysql::params::restart
 
@@ -1049,7 +1040,7 @@ Default value: $mysql::params::restart
 
 Data type: `Any`
 
-
+The name of the group used for root. Can be a group name or a group ID. See more about the [group](https://docs.puppetlabs.com/references/latest/type.html#file-attribute-group).
 
 Default value: $mysql::params::root_group
 
@@ -1057,7 +1048,7 @@ Default value: $mysql::params::root_group
 
 Data type: `Any`
 
-
+The name of the group of the MySQL daemon user. Can be a group name or a group ID. See more about the [group](https://docs.puppetlabs.com/references/latest/type.html#file-attribute-group).
 
 Default value: $mysql::params::mysql_group
 
@@ -1065,7 +1056,7 @@ Default value: $mysql::params::mysql_group
 
 Data type: `Any`
 
-
+The MySQL root password. Puppet attempts to set the root password and update `/root/.my.cnf` with it. This is required if `create_root_user` or `create_root_my_cnf` are true. If `root_password` is 'UNSET', then `create_root_user` and `create_root_my_cnf` are assumed to be false --- that is, the MySQL root user and `/root/.my.cnf` are not created. Password changes are supported; however, the old password must be set in `/root/.my.cnf`. Effectively, Puppet uses the old password, configured in `/root/my.cnf`, to set the new password in MySQL, and then updates `/root/.my.cnf` with the new password.
 
 Default value: $mysql::params::root_password
 
@@ -1073,7 +1064,7 @@ Default value: $mysql::params::root_password
 
 Data type: `Any`
 
-
+Specifies whether the service should be enabled. Valid values are `true`, `false`. Defaults to `true`.
 
 Default value: $mysql::params::server_service_enabled
 
@@ -1081,7 +1072,7 @@ Default value: $mysql::params::server_service_enabled
 
 Data type: `Any`
 
-
+Specifies whether the service should be managed. Valid values are `true`, `false`. Defaults to `true`.
 
 Default value: $mysql::params::server_service_manage
 
@@ -1089,7 +1080,7 @@ Default value: $mysql::params::server_service_manage
 
 Data type: `Any`
 
-
+The name of the MySQL server service. Defaults are OS dependent, defined in 'params.pp'.
 
 Default value: $mysql::params::server_service_name
 
@@ -1097,7 +1088,7 @@ Default value: $mysql::params::server_service_name
 
 Data type: `Any`
 
-
+The provider to use to manage the service. For Ubuntu, defaults to 'upstart'; otherwise, default is undefined.
 
 Default value: $mysql::params::server_service_provider
 
@@ -1105,7 +1096,7 @@ Default value: $mysql::params::server_service_provider
 
 Data type: `Any`
 
-
+Whether root user should be created. Valid values are `true`, `false`. Defaults to `true`. This is useful for a cluster setup with Galera. The root user has to be created only once. You can set this parameter true on one node and set it to false on the remaining nodes.
 
 Default value: $mysql::params::create_root_user
 
@@ -1113,7 +1104,7 @@ Default value: $mysql::params::create_root_user
 
 Data type: `Any`
 
-
+Whether to create `/root/.my.cnf`. Valid values are `true`, `false`. Defaults to `true`. `create_root_my_cnf` allows creation of `/root/.my.cnf` independently of `create_root_user`. You can use this for a cluster setup with Galera where you want `/root/.my.cnf` to exist on all nodes.
 
 Default value: $mysql::params::create_root_my_cnf
 
@@ -1121,7 +1112,7 @@ Default value: $mysql::params::create_root_my_cnf
 
 Data type: `Any`
 
-
+Optional hash of users to create, which are passed to [mysql_user](#mysql_user).
 
 Default value: {}
 
@@ -1129,7 +1120,7 @@ Default value: {}
 
 Data type: `Any`
 
-
+Optional hash of grants, which are passed to [mysql_grant](#mysql_grant).
 
 Default value: {}
 
@@ -1137,7 +1128,7 @@ Default value: {}
 
 Data type: `Any`
 
-
+Optional hash of databases to create, which are passed to [mysql_database](#mysql_database).
 
 Default value: {}
 
@@ -1161,20 +1152,17 @@ Default value: `undef`
 
 Data type: `Any`
 
-
+This parameter no longer does anything. It exists only for backwards compatibility. See the `root_password` parameter above for details on changing the root password.
 
 Default value: `undef`
-
 
 ### mysql::server::account_security
 
 See README.md.
 
-
 ### mysql::server::backup
 
-See README.me for usage.
-
+The mysql::server::backup class.
 
 #### Parameters
 
@@ -1312,7 +1300,7 @@ Default value: ['23', '5']
 
 Data type: `Any`
 
-
+A script that is executed before the backup begins.
 
 Default value: `false`
 
@@ -1320,7 +1308,7 @@ Default value: `false`
 
 Data type: `Any`
 
-
+A script that is executed when the backup is finished. This could be used to sync the backup to a central store. This script can be either a single line that is directly executed or a number of lines supplied as an array. It could also be one or more externally managed (executable) files.
 
 Default value: `false`
 
@@ -1336,7 +1324,7 @@ Default value: '/usr/bin:/usr/sbin:/bin:/sbin'
 
 Data type: `Any`
 
-
+Sets the server backup implementation. Valid values are:
 
 Default value: 'mysqldump'
 
@@ -1344,7 +1332,7 @@ Default value: 'mysqldump'
 
 Data type: `Any`
 
-
+Defines the maximum SQL statement size for the backup dump script. The default value is 1MB, as this is the default MySQL Server value.
 
 Default value: '1M'
 
@@ -1352,35 +1340,21 @@ Default value: '1M'
 
 Data type: `Any`
 
-
+Specifies an array of optional arguments which should be passed through to the backup tool. (Currently only supported by the xtrabackup provider.)
 
 Default value: []
-
 
 ### mysql::server::binarylog
 
 Binary log configuration requires the mysql user to be present. This must be done after package install
 
-
 ### mysql::server::config
 
 See README.me for options.
 
-
-### mysql::server::install
-
-The mysql::server::install class.
-
-
-### mysql::server::installdb
-
-The mysql::server::installdb class.
-
-
 ### mysql::server::monitor
 
 This is a helper class to add a monitoring user to the database
-
 
 #### Parameters
 
@@ -1390,7 +1364,7 @@ The following parameters are available in the `mysql::server::monitor` class.
 
 Data type: `Any`
 
-
+The username to create for MySQL monitoring.
 
 Default value: ''
 
@@ -1398,7 +1372,7 @@ Default value: ''
 
 Data type: `Any`
 
-
+The password to create for MySQL monitoring.
 
 Default value: ''
 
@@ -1406,15 +1380,13 @@ Default value: ''
 
 Data type: `Any`
 
-
+The hostname from which the monitoring user requests are allowed access.
 
 Default value: ''
 
-
 ### mysql::server::mysqltuner
 
-The mysql::server::mysqltuner class.
-
+Manage the MySQLTuner package.
 
 #### Parameters
 
@@ -1424,7 +1396,7 @@ The following parameters are available in the `mysql::server::mysqltuner` class.
 
 Data type: `Any`
 
-
+Ensures that the resource exists. Valid values are 'present', 'absent'. Defaults to 'present'.
 
 Default value: 'present'
 
@@ -1432,7 +1404,7 @@ Default value: 'present'
 
 Data type: `Any`
 
-
+The version to install from the major/MySQLTuner-perl github repository. Must be a valid tag. Defaults to 'v1.3.0'.
 
 Default value: 'v1.3.0'
 
@@ -1448,10 +1420,9 @@ Default value: `undef`
 
 Data type: `Any`
 
-
+Environment variables active during download, e.g. to download via proxies: environment => 'https_proxy=http://proxy.example.com:80'
 
 Default value: `undef`
-
 
 ### mysql::server::providers
 
@@ -1459,53 +1430,33 @@ Convenience class to call each of the three providers with the corresponding
 hashes provided in mysql::server.
 See README.md for details.
 
-
-### mysql::server::root_password
-
-The mysql::server::root_password class.
-
-
-### mysql::server::service
-
-The mysql::server::service class.
-
-
 ## Defined types
 
 ### mysql::db
 
-See README.md for details.
-
+Create and configure a MySQL database.
 
 #### Parameters
 
 The following parameters are available in the `mysql::db` defined type.
 
-##### `grant`
-
-Data type: `Any`
-
-do some shit
-
-Default value: 'ALL'
-
 ##### `user`
 
 Data type: `Any`
 
-
+The user for the database you're creating.
 
 ##### `password`
 
 Data type: `Any`
 
-
+The password for $user for the database you're creating.
 
 ##### `dbname`
 
 Data type: `Any`
 
-
+The name of the database to create.
 
 Default value: $name
 
@@ -1513,7 +1464,7 @@ Default value: $name
 
 Data type: `Any`
 
-
+The character set for the database.
 
 Default value: 'utf8'
 
@@ -1521,7 +1472,7 @@ Default value: 'utf8'
 
 Data type: `Any`
 
-
+The collation for the database.
 
 Default value: 'utf8_general_ci'
 
@@ -1529,15 +1480,23 @@ Default value: 'utf8_general_ci'
 
 Data type: `Any`
 
-
+The host to use as part of user@host for grants.
 
 Default value: 'localhost'
+
+##### `grant`
+
+Data type: `Any`
+
+The privileges to be granted for user@host on the database.
+
+Default value: 'ALL'
 
 ##### `sql`
 
 Data type: `Optional[Variant[Array, Hash, String]]`
 
-
+The path to the sqlfile you want to execute. This can be single file specified as string, or it can be an array of strings.
 
 Default value: `undef`
 
@@ -1545,7 +1504,7 @@ Default value: `undef`
 
 Data type: `Any`
 
-
+Specifies whether executing the sqlfiles should happen on every run. If set to false, sqlfiles only run once.
 
 Default value: `false`
 
@@ -1553,7 +1512,7 @@ Default value: `false`
 
 Data type: `Enum['absent', 'present']`
 
-
+Specifies whether to create the database. Valid values are 'present', 'absent'. Defaults to 'present'.
 
 Default value: 'present'
 
@@ -1561,7 +1520,7 @@ Default value: 'present'
 
 Data type: `Any`
 
-
+Timeout, in seconds, for loading the sqlfiles. Defaults to 300.
 
 Default value: 300
 
@@ -1569,17 +1528,15 @@ Default value: 300
 
 Data type: `Any`
 
-
+Command to read the sqlfile for importing the database. Useful for compressed sqlfiles. For example, you can use 'zcat' for .gz files.
 
 Default value: 'cat'
-
 
 ## Resource types
 
 ### mysql_database
 
 Manage MySQL databases.
-
 
 #### Properties
 
@@ -1619,11 +1576,9 @@ namevar
 
 The name of the MySQL database to manage.
 
-
 ### mysql_datadir
 
 Manage MySQL datadirs with mysql_install_db OR mysqld (5.7.6 and above).
-
 
 #### Properties
 
@@ -1671,11 +1626,9 @@ Valid values: %r{^/}
 
 The path to the mysqld error log file (used with the --log-error option)
 
-
 ### mysql_grant
 
 Manage a MySQL user's rights.
-
 
 #### Properties
 
@@ -1717,11 +1670,9 @@ namevar
 
 Name to describe the grant.
 
-
 ### mysql_plugin
 
 Manage MySQL plugins.
-
 
 #### Properties
 
@@ -1751,11 +1702,9 @@ namevar
 
 The name of the MySQL plugin to manage.
 
-
 ### mysql_user
 
 Manage a MySQL user. This includes management of users password as well as privileges.
-
 
 #### Properties
 
@@ -1819,10 +1768,10 @@ namevar
 
 The name of the user. This uses the 'username@hostname' or username@hostname.
 
-
 ## Functions
 
 ### mysql_deepmerge
+
 Type: Ruby 3.x API
 
 Recursively merges two or more hashes together and returns the resulting hash.
@@ -1860,6 +1809,7 @@ When there are conficting uses of dashes and underscores in two keys (which mysq
 Returns: `Any`
 
 ### mysql_dirname
+
 Type: Ruby 3.x API
 
 Returns the dirname of a path.
@@ -1871,6 +1821,7 @@ Returns the dirname of a path.
 Returns: `Any`
 
 ### mysql_password
+
 Type: Ruby 3.x API
 
 Returns the mysql password hash from the clear text password.
@@ -1882,6 +1833,7 @@ Returns the mysql password hash from the clear text password.
 Returns: `Any`
 
 ### mysql_strip_hash
+
 Type: Ruby 3.x API
 
 TEMPORARY FUNCTION: EXPIRES 2014-03-10
@@ -1900,9 +1852,7 @@ Returns: `Any`
 
 Allows you to backup your database to local file.
 
-#### Input
-
-Input method: stdin
+**Supports noop?** false
 
 #### Parameters
 
@@ -1934,9 +1884,7 @@ Path to file you want backup to
 
 Allows you to execute arbitary SQL
 
-#### Input
-
-Input method: stdin
+**Supports noop?** false
 
 #### Parameters
 
