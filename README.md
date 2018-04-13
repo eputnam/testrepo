@@ -13,9 +13,9 @@
     * [Specify passwords](#specify-passwords)
     * [Install Percona server on CentOS](#install-percona-server-on-centos)
     * [Install MariaDB on Ubuntu](#install-mariadb-on-ubuntu)
-4. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
+4. [Limitations - OS compatibility, etc.](#limitations)
+5. [Development - Guide for contributing to the module](#development)
+6. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 
 ## Module Description
 
@@ -383,6 +383,49 @@ mysql::server::db:
 ### Tasks
 
 The MySQL module has an example task that allows a user to execute arbitary SQL against a database. Please refer to to the [PE documentation](https://puppet.com/docs/pe/2017.3/orchestrator/running_tasks.html) or [Bolt documentation](https://puppet.com/docs/bolt/latest/bolt.html) on how to execute a task.
+
+
+## Limitations
+
+This module has been tested on:
+
+* RedHat Enterprise Linux 5, 6, 7
+* Debian 6, 7, 8
+* CentOS 5, 6, 7
+* Ubuntu 10.04, 12.04, 14.04, 16.04
+* Scientific Linux 5, 6
+* SLES 11
+
+Testing on other platforms has been minimal and cannot be guaranteed.
+
+**Note:** The mysqlbackup.sh does not work and is not supported on MySQL 5.7 and greater.
+
+Debian 9 compatibility has not been fully verified.
+
+## Development
+
+Puppet modules on the Puppet Forge are open projects, and community contributions are essential for keeping them great. We can't access the huge number of platforms and myriad of hardware, software, and deployment configurations that Puppet is intended to serve.
+
+We want to keep it as easy as possible to contribute changes so that our modules work in your environment. There are a few guidelines that we need contributors to follow so that we can have a chance of keeping on top of things.
+
+Check out our the complete [module contribution guide](https://docs.puppetlabs.com/forge/contributing.html).
+
+### Authors
+
+This module is based on work by David Schmitt. The following contributors have contributed to this module (beyond Puppet Labs):
+
+* Larry Ludwig
+* Christian G. Warden
+* Daniel Black
+* Justin Ellison
+* Lowe Schmidt
+* Matthias Pigulla
+* William Van Hevelingen
+* Michael Arnold
+* Chris Weyl
+* Daniël van Eeden
+* Jan-Otto Kröpke
+* Timothy Sven Nelson
 
 # Reference
 
@@ -1563,46 +1606,3 @@ The password
 Data type: `String[1]`
 
 The SQL you want to execute
-
-
-## Limitations
-
-This module has been tested on:
-
-* RedHat Enterprise Linux 5, 6, 7
-* Debian 6, 7, 8
-* CentOS 5, 6, 7
-* Ubuntu 10.04, 12.04, 14.04, 16.04
-* Scientific Linux 5, 6
-* SLES 11
-
-Testing on other platforms has been minimal and cannot be guaranteed.
-
-**Note:** The mysqlbackup.sh does not work and is not supported on MySQL 5.7 and greater.
-
-Debian 9 compatibility has not been fully verified.
-
-## Development
-
-Puppet modules on the Puppet Forge are open projects, and community contributions are essential for keeping them great. We can't access the huge number of platforms and myriad of hardware, software, and deployment configurations that Puppet is intended to serve.
-
-We want to keep it as easy as possible to contribute changes so that our modules work in your environment. There are a few guidelines that we need contributors to follow so that we can have a chance of keeping on top of things.
-
-Check out our the complete [module contribution guide](https://docs.puppetlabs.com/forge/contributing.html).
-
-### Authors
-
-This module is based on work by David Schmitt. The following contributors have contributed to this module (beyond Puppet Labs):
-
-* Larry Ludwig
-* Christian G. Warden
-* Daniel Black
-* Justin Ellison
-* Lowe Schmidt
-* Matthias Pigulla
-* William Van Hevelingen
-* Michael Arnold
-* Chris Weyl
-* Daniël van Eeden
-* Jan-Otto Kröpke
-* Timothy Sven Nelson
